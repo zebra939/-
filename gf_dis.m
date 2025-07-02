@@ -1,8 +1,6 @@
-function ret  = gf_dis(a,b)
-ret  = 0;
-a_temp = de2bi(gf2num(a),3);
-b_temp = de2bi(gf2num(b),3);
- 
-temp = a_temp+b_temp;
-temp = mod(temp,2);
-ret = sum(temp);
+function dist = gf_dis(a, b)
+    % 二进制表示差异计算
+    a_bin = de2bi(double(a.x), 3, 'left-msb');
+    b_bin = de2bi(double(b.x), 3, 'left-msb');
+    dist = sum(a_bin ~= b_bin, 'all');
+end
